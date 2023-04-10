@@ -1,0 +1,93 @@
+main .portfolios .main-portfolios .portfolio-list {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(100px, 1fr));
+  justify-content: space-evenly;
+  gap: 16px;
+ 
+  .card {
+    padding: 0;
+    position: relative;
+ 
+    .card-image {
+      width: 100%;
+      height: 100%;
+      max-height: 250px;
+ 
+      img {
+        width: 100%;
+        height: 100%;
+ 
+        object-fit: cover;
+        object-position: center;
+ 
+        border-radius: 6px;
+ 
+        transition: 0.3s ease-in-out;
+      }
+    }
+ 
+    .card-body.floating {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+ 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+ 
+ 
+      background-color: #ffffff77;
+      border-radius: 6px;
+ 
+      scale: 0;
+      animation: hover-portfolio-disappear 0.5s ease-in-out;
+ 
+      .title {
+        margin-block: 1rem;
+        font-size: 1.5rem;
+      }
+ 
+      .social-medias {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+ 
+        .social-media-link {
+          font-size: 2rem;
+        }
+      }
+    }
+ 
+    &:hover .card-body.floating {
+      background-color: #ffffff77;
+ 
+      scale: 1;
+      animation: hover-portfolio-appear 0.35s ease-in-out;
+    }
+  }
+}
+ 
+/* MD: minimum viewport width 768px or above */
+@media screen and (min-width: 768px) {
+  main .portfolios .main-portfolios .portfolio-list {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 24px;
+  }
+}
+ 
+/* LG: minimum viewport width 992px or above */
+@media screen and (min-width: 992px) {
+  main .portfolios .main-portfolios .portfolio-list {
+    gap: 32px;
+  }
+}
+ 
+/* XL: minimum viewport width 1200px or above */
+@media screen and (min-width: 1200px) {
+  main .portfolios .main-portfolios .portfolio-list {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
+}
